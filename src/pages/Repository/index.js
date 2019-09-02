@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 
 import Api from '../../services/Api';
 
 import Container from '../../components/Container';
-import { Loading, Owner, IssueList } from './styles';
+import {
+  Loading,
+  Owner,
+  IssueList,
+  StatusList,
+  Filters,
+  Pagination,
+} from './styles';
 
 export default class Repository extends Component {
   static propTypes = {
@@ -20,11 +28,14 @@ export default class Repository extends Component {
     repository: {},
     issues: [],
     loading: true,
+    state: 'all',
+    page: 1,
   };
 
   async componentDidMount() {
     const { match } = this.props;
     const repoName = decodeURIComponent(match.params.repository);
+    const { page } = this.state;
 
     const [repository, issues] = await Promise.all([
       Api.get(`/repos/${repoName}`),
@@ -32,6 +43,7 @@ export default class Repository extends Component {
         params: {
           state: 'open',
           per_page: 5,
+          page,
         },
       }),
     ]);
@@ -43,8 +55,48 @@ export default class Repository extends Component {
     });
   }
 
+  handleStatusChange = async e => {
+    const { match } = this.props;
+    const repoName = decodeURIComponent(match.params.repository);
+    const state = e.target.value;
+
+    this.setState({ loading: true });
+    const response = await Api.get(`repos/${repoName}/issues`, {
+      params: {
+        per_page: 5,
+        state,
+      },
+    });
+    this.setState({
+      issues: response.data,
+      loading: false,
+      page: 1,
+      state,
+    });
+  };
+
+  handlePagination = async page => {
+    const { match } = this.props;
+    const repoName = decodeURIComponent(match.params.repository);
+    const { state } = this.state;
+
+    this.setState({ loading: true });
+    const response = await Api.get(`repos/${repoName}/issues`, {
+      params: {
+        per_page: 5,
+        state,
+        page,
+      },
+    });
+    this.setState({
+      issues: response.data,
+      loading: false,
+      page,
+    });
+  };
+
   render() {
-    const { repository, issues, loading } = this.state;
+    const { repository, issues, loading, state, page } = this.state;
 
     if (loading) {
       return <Loading>Carregando</Loading>;
@@ -58,6 +110,14 @@ export default class Repository extends Component {
           <h1>{repository.name}</h1>
           <p>{repository.description}</p>
         </Owner>
+
+        <Filters>
+          <StatusList value={state} onChange={this.handleStatusChange}>
+            <option value="all">Todas</option>
+            <option value="open">Abertas</option>
+            <option value="closed">Fechadas</option>
+          </StatusList>
+        </Filters>
 
         <IssueList>
           {issues.map(issue => (
@@ -75,6 +135,22 @@ export default class Repository extends Component {
             </li>
           ))}
         </IssueList>
+        <Pagination>
+          <button
+            type="button"
+            disabled={page < 2}
+            onClick={() => this.handlePagination(page - 1)}
+          >
+            <FaLongArrowAltLeft color="#7159c1" />
+          </button>
+          <button
+            type="button"
+            disabled={issues.length < 5}
+            onClick={() => this.handlePagination(page + 1)}
+          >
+            <FaLongArrowAltRight color="#7159c1" />
+          </button>
+        </Pagination>
       </Container>
     );
   }
