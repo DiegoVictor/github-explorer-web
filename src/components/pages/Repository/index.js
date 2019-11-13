@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 
-import Api from '../../services/Api';
+import api from '../../../services/api';
 
-import Container from '../../components/Container';
+import Container from '../../Container';
 import {
   Loading,
   Owner,
@@ -38,8 +38,8 @@ export default class Repository extends Component {
     const { page } = this.state;
 
     const [repository, issues] = await Promise.all([
-      Api.get(`/repos/${repoName}`),
-      Api.get(`/repos/${repoName}/issues`, {
+      api.get(`/repos/${repoName}`),
+      api.get(`/repos/${repoName}/issues`, {
         params: {
           state: 'open',
           per_page: 5,
@@ -61,7 +61,7 @@ export default class Repository extends Component {
     const state = e.target.value;
 
     this.setState({ loading: true });
-    const response = await Api.get(`repos/${repoName}/issues`, {
+    const response = await api.get(`repos/${repoName}/issues`, {
       params: {
         per_page: 5,
         state,
@@ -81,7 +81,7 @@ export default class Repository extends Component {
     const { state } = this.state;
 
     this.setState({ loading: true });
-    const response = await Api.get(`repos/${repoName}/issues`, {
+    const response = await api.get(`repos/${repoName}/issues`, {
       params: {
         per_page: 5,
         state,

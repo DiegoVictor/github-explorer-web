@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import Api from '../../services/Api';
-import Container from '../../components/Container';
+import api from '../../../services/api';
+import Container from '../../Container';
 import { Form, SubmitButton, List } from './styles';
 
 export default class Main extends Component {
@@ -49,7 +49,7 @@ export default class Main extends Component {
 
       this.setState({ loading: true });
 
-      const response = await Api.get(`/repos/${newRepo}`);
+      const response = await api.get(`/repos/${newRepo}`);
       const data = {
         name: response.data.full_name,
       };
