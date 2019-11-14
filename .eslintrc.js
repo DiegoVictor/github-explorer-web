@@ -19,23 +19,11 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    'react', 'prettier'
+    'react', 'prettier', 'react-hooks', 'jsx-a11y', 'import',
   ],
   rules: {
     'prettier/prettier': 'error',
-    'react/jsx-filename-extension': [
-      'warn',
-      { extensions: ['.jsx', '.js'] }
-    ],
+    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
     'import/prefer-default-export': 'off',
-    'react/state-in-constructor': 'off',
-    'react/static-property-placement': 'off'
   },
-  settings: {
-    'import/resolver': {
-      'babel-plugin-root-import': {
-        rootPathSuffix: 'src'
-      }
-    }
-  }
 };
