@@ -23,10 +23,7 @@ export default function Main() {
   useEffect(() => {
     const data = localStorage.getItem('repositories');
     if (data !== repositories) {
-      localStorage.setItem(
-        'repositories',
-        JSON.stringify(repositories)
-      );
+      localStorage.setItem('repositories', JSON.stringify(repositories));
     }
   }, [repositories]);
 
@@ -34,33 +31,36 @@ export default function Main() {
     setRepoName(e.target.value);
   }, []);
 
-  const handleSubmit = useCallback(async e => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async e => {
+      e.preventDefault();
 
-    try {
-      const duplicated_repos = repositories.filter(
-        repo => repo.name === repo_name
-      );
-      if (duplicated_repos.length > 0) {
-        throw new Error('Repositório duplicado');
+      try {
+        const duplicated_repos = repositories.filter(
+          repo => repo.name === repo_name
+        );
+        if (duplicated_repos.length > 0) {
+          throw new Error('Repositório duplicado');
+        }
+
+        setLoading(true);
+
+        const response = await api.get(`/repos/${repo_name}`);
+        const data = {
+          name: response.data.full_name,
+        };
+
+        setRepositories([...repositories, data]);
+        setRepoName('');
+        setLoading(false);
+      } catch (err) {
+        setError(true);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(true);
-
-      const response = await api.get(`/repos/${repo_name}`);
-      const data = {
-        name: response.data.full_name,
-      };
-
-      setRepositories([...repositories, data]);
-      setRepoName('');
-      setLoading(false);
-    } catch (err) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }, [repositories, repo_name]);
+    },
+    [repositories, repo_name]
+  );
 
   return (
     <Container>

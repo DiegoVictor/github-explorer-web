@@ -42,102 +42,110 @@ export default function Repository({ match }) {
     })();
   }, [match, page, state]);
 
+  const handleStatusChange = useCallback(
+    e => {
+      (async () => {
+        const repo_name = decodeURIComponent(match.params.repository);
+        const state = e.target.value;
 
-  const handleStatusChange = useCallback(e => {
-    (async () => {
-      const repo_name = decodeURIComponent(match.params.repository);
-      const state = e.target.value;
+        setLoading(true);
+        const { data } = await api.get(`repos/${repo_name}/issues`, {
+          params: {
+            per_page: 5,
+            state,
+          },
+        });
 
-      setLoading(true);
-      const { data } = await api.get(`repos/${repo_name}/issues`, {
-        params: {
-          per_page: 5,
-          state,
-        },
-      });
+        setLoading(false);
+        setState(state);
+        setIssues(data);
+        setPage(1);
+      })();
+    },
+    [match]
+  );
 
-      setLoading(false);
-      setState(state);
-      setIssues(data);
-      setPage(1);
-    })();
-  }, [match]);
+  const handlePagination = useCallback(
+    p => {
+      (async () => {
+        const repo_name = decodeURIComponent(match.params.repository);
 
-  const handlePagination = useCallback(p => {
-    (async () => {
-      const repo_name = decodeURIComponent(match.params.repository);
+        setLoading(true);
+        const response = await api.get(`repos/${repo_name}/issues`, {
+          params: {
+            per_page: 5,
+            state,
+            page: p,
+          },
+        });
 
-      setLoading(true);
-      const response = await api.get(`repos/${repo_name}/issues`, {
-        params: {
-          per_page: 5,
-          state,
-          page: p,
-        },
-      });
-
-      setIssues(response.data);
-      setLoading(false);
-      setPage(p);
-    })();
-  }, [match, state]);
+        setIssues(response.data);
+        setLoading(false);
+        setPage(p);
+      })();
+    },
+    [match, state]
+  );
 
   return (
     <>
-    { loading ? (
-      <Loading>Carregando</Loading>
-    ) : (
-      <Container>
-        <Owner>
-          <Link to="/">Voltar</Link>
-          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
-          <h1>{repository.name}</h1>
-          <p>{repository.description}</p>
-        </Owner>
+      {loading ? (
+        <Loading>Carregando</Loading>
+      ) : (
+        <Container>
+          <Owner>
+            <Link to="/">Voltar</Link>
+            <img
+              src={repository.owner.avatar_url}
+              alt={repository.owner.login}
+            />
+            <h1>{repository.name}</h1>
+            <p>{repository.description}</p>
+          </Owner>
 
-        <Filters>
-          <StatusList value={state} onChange={handleStatusChange}>
-            <option value="all">Todas</option>
-            <option value="open">Abertas</option>
-            <option value="closed">Fechadas</option>
-          </StatusList>
-        </Filters>
+          <Filters>
+            <StatusList value={state} onChange={handleStatusChange}>
+              <option value="all">Todas</option>
+              <option value="open">Abertas</option>
+              <option value="closed">Fechadas</option>
+            </StatusList>
+          </Filters>
 
-        <IssueList>
-          {issues.map(issue => (
-            <li key={String(issue.id)}>
-              <img src={issue.user.avatar_url} alt={issue.user.login} />
-              <div>
-                <strong>
-                  <a href={issue.html_url}>{issue.title}</a>
-                  {issue.labels.map(label => (
-                    <span key={String(label.id)}>{label.name}</span>
-                  ))}
-                </strong>
-                <p>{issue.user.login}</p>
-              </div>
-            </li>
-          ))}
-        </IssueList>
+          <IssueList>
+            {issues.map(issue => (
+              <li key={String(issue.id)}>
+                <img src={issue.user.avatar_url} alt={issue.user.login} />
+                <div>
+                  <strong>
+                    <a href={issue.html_url}>{issue.title}</a>
+                    {issue.labels.map(label => (
+                      <span key={String(label.id)}>{label.name}</span>
+                    ))}
+                  </strong>
+                  <p>{issue.user.login}</p>
+                </div>
+              </li>
+            ))}
+          </IssueList>
 
-        <Pagination>
-          <button
-            type="button"
-            disabled={page < 2}
-            onClick={() => handlePagination(page - 1)}
-          >
-            <FaLongArrowAltLeft color="#7159c1" />
-          </button>
-          <button
-            type="button"
-            disabled={issues.length < 5}
-            onClick={() => handlePagination(page + 1)}
-          >
-            <FaLongArrowAltRight color="#7159c1" />
-          </button>
-        </Pagination>
-      </Container>
-    )}
+          <Pagination>
+            <button
+              type="button"
+              disabled={page < 2}
+              onClick={() => handlePagination(page - 1)}
+            >
+              <FaLongArrowAltLeft color="#7159c1" />
+            </button>
+            <button
+              type="button"
+              disabled={issues.length < 5}
+              onClick={() => handlePagination(page + 1)}
+            >
+              <FaLongArrowAltRight color="#7159c1" />
+            </button>
+          </Pagination>
+        </Container>
+      )}
     </>
   );
 }
