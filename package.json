@@ -18,6 +18,25 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "testMatch": [
+      "./__tests__/**/*.test.js"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/react/cleanup-after-each",
+      "@testing-library/jest-dom/extend-expect"
+    ],
+    "moduleNameMapper": {
+      "^~/(.*)": "<rootDir>/src/$1"
+    },
+    "collectCoverageFrom": [
+      "!src/index.js",
+      "!src/routes.js",
+      "!src/services/api.js",
+      "!src/config/ReactotronConfig.js"
+    ],
+    "coverageDirectory": "__tests__/coverage"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
