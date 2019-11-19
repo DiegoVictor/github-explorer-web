@@ -16,6 +16,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
+    "coverage": "react-app-rewired test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "jest": {
@@ -35,7 +36,7 @@
       "!src/services/api.js",
       "!src/config/ReactotronConfig.js"
     ],
-    "coverageDirectory": "__tests__/coverage"
+    "coverageDirectory": "src/__tests__/coverage"
   },
   "eslintConfig": {
     "extends": "react-app"
