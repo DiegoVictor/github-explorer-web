@@ -34,7 +34,8 @@
       "!src/index.js",
       "!src/routes.js",
       "!src/services/api.js",
-      "!src/config/ReactotronConfig.js"
+      "!src/config/ReactotronConfig.js",
+      "!src/components/pages/index.js"
     ],
     "coverageDirectory": "src/__tests__/coverage"
   },
