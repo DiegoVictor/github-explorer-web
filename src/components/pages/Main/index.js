@@ -101,6 +101,7 @@ export default function Main() {
           </li>
         ))}
       </List>
+      </Panel>
     </Container>
   );
 }
