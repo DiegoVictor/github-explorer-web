@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
+import { FaList, FaGithub, FaPlus, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import api from '~/services/api';
 import Panel from '~/components/Panel';
+import { Container, Form, Icon, Err, SubmitButton, List } from './styles';
 
 export default function Main() {
   const [repo_name, setRepoName] = useState('');
@@ -63,12 +64,9 @@ export default function Main() {
 
   return (
     <Container>
-      <h1>
-        <FaGithubAlt />
-        Repositórios
-      </h1>
-
-      <Form onSubmit={handleSubmit} error={error}>
+          <Icon>
+            <FaGithub color="#7B7A7A" size="30"/>
+          </Icon>
         <input
           type="text"
           placeholder="Adicionar repositório"
@@ -84,6 +82,11 @@ export default function Main() {
           )}
         </SubmitButton>
       </Form>
+
+        <h1>
+          <FaList />
+          Repositórios
+        </h1>
 
       <List>
         {repositories.map(repository => (
