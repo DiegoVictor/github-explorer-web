@@ -72,7 +72,7 @@ export default function Main() {
           </Icon>
         <input
           type="text"
-          placeholder="Adicionar repositório"
+            placeholder="username/project"
           value={repo_name}
           onChange={handleInputChange}
         />
