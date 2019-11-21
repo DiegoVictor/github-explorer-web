@@ -65,6 +65,8 @@ export default function Main() {
   return (
     <Container>
       {error && <Err data-testid="error">{error.message}</Err>}
+      <Panel>
+        <Form onSubmit={handleSubmit} error={error}>
           <Icon>
             <FaGithub color="#7B7A7A" size="30"/>
           </Icon>
