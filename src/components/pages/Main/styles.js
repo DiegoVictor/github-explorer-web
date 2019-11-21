@@ -14,6 +14,16 @@ export const Form = styled.form`
   }
 `;
 
+export const Err = styled.div`
+  background-color: #f2dede;
+  color: #cb6664;
+  font-weight: bold;
+  padding: 10px 15px;
+  margin: 10px auto;
+  max-width: 700px;
+  width: 100%;
+`;
+
 export const rotate = keyframes`
   from {
     transform: rotate(0deg);

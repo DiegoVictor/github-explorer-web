@@ -54,7 +54,7 @@ export default function Main() {
         setRepoName('');
         setLoading(false);
       } catch (err) {
-        setError(true);
+        setError(err);
       } finally {
         setLoading(false);
       }
@@ -64,6 +64,7 @@ export default function Main() {
 
   return (
     <Container>
+      {error && <Err data-testid="error">{error.message}</Err>}
           <Icon>
             <FaGithub color="#7B7A7A" size="30"/>
           </Icon>
