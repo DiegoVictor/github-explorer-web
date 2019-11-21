@@ -3,8 +3,7 @@ import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import api from '~/services/api';
-import Container from '~/components/Container';
-import { Form, SubmitButton, List } from './styles';
+import Panel from '~/components/Panel';
 
 export default function Main() {
   const [repo_name, setRepoName] = useState('');

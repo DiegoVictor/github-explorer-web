@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 
 import api from '~/services/api';
-import Container from '~/components/Container';
+import Panel from '~/components/Panel';
 import {
   Loading,
   Owner,
@@ -92,7 +92,7 @@ export default function Repository({ match }) {
       {loading ? (
         <Loading>Carregando</Loading>
       ) : (
-        <Container>
+        <Panel>
           <Owner>
             <Link to="/">Voltar</Link>
             <img
@@ -144,7 +144,7 @@ export default function Repository({ match }) {
               <FaLongArrowAltRight color="#7159c1" />
             </button>
           </Pagination>
-        </Container>
+        </Panel>
       )}
     </>
   );
