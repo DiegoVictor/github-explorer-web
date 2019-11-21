@@ -11,17 +11,18 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
-    min-height: 100%;
+    height: 100%;
   }
 
   body {
-    background-color: #7159C1;
+    background-color: #F7F5F5;
+    font-family: Roboto;
     -webkit-font-smoothing: antialiased !important;
   }
 
   body, input, button {
     color: #222222;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 14px;
   }
 
