@@ -1,17 +1,31 @@
 import styled, { keyframes, css } from 'styled-components';
 
+export const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0px auto;
+  max-width: 700px;
+  padding: 80px 0px;
+`;
+
 export const Form = styled.form`
+  align-items: center;
   display: flex;
   flex-direction: row;
-  margin-top: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 
   input {
     border: 1px solid ${props => (props.error ? '#FF6B6B' : '#EEE')};
-    border-radius: 4px;
     flex: 1;
     font-size: 16px;
     padding: 10px 15px;
   }
+`;
+
+export const Icon = styled.div`
+  margin-right: 10px;
 `;
 
 export const Err = styled.div`
@@ -39,13 +53,13 @@ export const SubmitButton = styled.button.attrs(props => ({
   disabled: props.loading,
 }))`
   align-items: center;
-  background-color: #7159c1;
+  background-color: #7B7A7A;
   border: 0px;
-  border-radius: 4px;
   display: flex;
+  height: 100%;
   justify-content: center;
   margin-left: 10px;
-  padding: 0px 15px;
+  padding: 13.5px 15px;
 
   &[disabled] {
     cursor: not-allowed;
@@ -63,22 +77,24 @@ export const SubmitButton = styled.button.attrs(props => ({
 
 export const List = styled.ul`
   list-style: none;
-  margin-top: 30px;
+  margin-top: 10px;
 
   li {
     align-items: center;
+    border-top: 1px solid #EEE;
+    box-shadow: 0px 1px 2px #DDD;
+    color: #7B7A7A;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 15px 0px;
-
-    & + li {
-      border-top: 1px solid #eeeeee;
-    }
+    margin-bottom: 4px;
+    padding: 15px 15px;
 
     a {
-      color: #7159c1;
-      text-decoration: none;
+      color: #7B7A7A;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
     }
   }
 `;
