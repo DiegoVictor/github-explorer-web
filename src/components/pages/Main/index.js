@@ -66,41 +66,43 @@ export default function Main() {
     <Container>
       {error && <Err data-testid="error">{error.message}</Err>}
       <Panel>
-        <Form onSubmit={handleSubmit} error={error}>
+        <Form data-testid="submit" onSubmit={handleSubmit} error={error}>
           <Icon>
             <FaGithub color="#7B7A7A" size="30"/>
           </Icon>
-        <input
-          type="text"
+          <input
+            type="text"
             placeholder="username/project"
-          value={repo_name}
-          onChange={handleInputChange}
-        />
-
-        <SubmitButton loading={loading ? 1 : 0}>
-          {loading ? (
-            <FaSpinner color="#FFFFFF" size={14} />
-          ) : (
-            <FaPlus color="#FFFFFF" size={14} />
-          )}
-        </SubmitButton>
-      </Form>
+            value={repo_name}
+            onChange={handleInputChange}
+          />
+          <SubmitButton loading={loading ? 1 : 0}>
+            {loading ? (
+              <FaSpinner color="#FFFFFF" size={14} />
+            ) : (
+              <FaPlus color="#FFFFFF" size={14} />
+            )}
+          </SubmitButton>
+        </Form>
 
         <h1>
           <FaList />
           Repositórios
         </h1>
 
-      <List>
-        {repositories.map(repository => (
-          <li key={repository.name}>
-            <span>{repository.name}</span>
-            <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-              Detalhes
-            </Link>
-          </li>
-        ))}
-      </List>
+        <List>
+          {repositories.map(repository => (
+            <li key={repository.name}>
+              <span>{repository.name}</span>
+              <Link
+                data-testid={`repository_${repository.name}`}
+                to={`/repository/${encodeURIComponent(repository.name)}`}
+              >
+                Detalhes
+              </Link>
+            </li>
+          ))}
+        </List>
       </Panel>
     </Container>
   );
