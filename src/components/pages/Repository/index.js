@@ -23,21 +23,23 @@ export default function Repository({ match }) {
   useEffect(() => {
     (async () => {
       const repo_name = decodeURIComponent(match.params.repository);
+      const { data } = await api.get(`/repos/${repo_name}`);
+      setRepository(data);
+    })();
+  }, [match]);
 
-      const [{ data: repo }, { data: repo_issues }] = await Promise.all([
-        api.get(`/repos/${repo_name}`),
-        api.get(`/repos/${repo_name}/issues`, {
+  useEffect(() => {
+    (async () => {
+      const repo_name = decodeURIComponent(match.params.repository);
+      const { data } = await api.get(`/repos/${repo_name}/issues`, {
           params: {
             state,
             per_page: 5,
             page,
           },
-        }),
-      ]);
+      });
 
-      setRepository(repo);
-      setIssues(repo_issues);
-      setLoading(false);
+      setIssues(data);
     })();
   }, [match, page, state]);
 
