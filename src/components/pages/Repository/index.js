@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import api from '~/services/api';
 import Panel from '~/components/Panel';
@@ -68,8 +68,6 @@ export default function Repository({ match }) {
     p => {
       (async () => {
         const repo_name = decodeURIComponent(match.params.repository);
-
-        setLoading(true);
         const response = await api.get(`repos/${repo_name}/issues`, {
           params: {
             per_page: 5,
@@ -79,7 +77,6 @@ export default function Repository({ match }) {
         });
 
         setIssues(response.data);
-        setLoading(false);
         setPage(p);
       })();
     },
@@ -129,14 +126,14 @@ export default function Repository({ match }) {
               disabled={page < 2}
               onClick={() => handlePagination(page - 1)}
             >
-              <FaLongArrowAltLeft color="#7159c1" />
+              <FaArrowLeft color="#7B7A7A" /> Previous
             </button>
             <button
               type="button"
               disabled={issues.length < 5}
               onClick={() => handlePagination(page + 1)}
             >
-              <FaLongArrowAltRight color="#7159c1" />
+              Next <FaArrowRight color="#7B7A7A" />
             </button>
           </Pagination>
         </Panel>
