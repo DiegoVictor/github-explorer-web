@@ -43,28 +43,10 @@ export default function Repository({ match }) {
     })();
   }, [match, page, state]);
 
-  const handleStatusChange = useCallback(
-    e => {
-      (async () => {
-        const repo_name = decodeURIComponent(match.params.repository);
-        const state = e.target.value;
-
-        setLoading(true);
-        const { data } = await api.get(`repos/${repo_name}/issues`, {
-          params: {
-            per_page: 5,
-            state,
-          },
-        });
-
-        setLoading(false);
-        setState(state);
-        setIssues(data);
+  const handleStatusChange = useCallback(e => {
         setPage(1);
-      })();
-    },
-    [match]
-  );
+    setState(e.target.value);
+  }, []);
 
   const handlePagination = useCallback(
     p => {
