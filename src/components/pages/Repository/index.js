@@ -81,6 +81,10 @@ export default function Repository({ match }) {
           </Owner>
 
           <Filters>
+            <StatusList
+              value={state}
+              onChange={handleStatusChange}
+            >
               <option value="all">All</option>
               <option value="open">Open</option>
               <option value="closed">Closed</option>
