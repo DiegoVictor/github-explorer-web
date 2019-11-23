@@ -100,10 +100,9 @@ export default function Repository({ match }) {
           </Owner>
 
           <Filters>
-            <StatusList value={state} onChange={handleStatusChange}>
-              <option value="all">Todas</option>
-              <option value="open">Abertas</option>
-              <option value="closed">Fechadas</option>
+              <option value="all">All</option>
+              <option value="open">Open</option>
+              <option value="closed">Closed</option>
             </StatusList>
           </Filters>
 
