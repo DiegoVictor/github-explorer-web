@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 
@@ -7,6 +6,7 @@ import api from '~/services/api';
 import Panel from '~/components/Panel';
 import {
   Container,
+  Back,
   Owner,
   IssueList,
   StatusList,
@@ -91,7 +91,6 @@ export default function Repository({ match }) {
       {repository && (
         <Panel>
           <Owner>
-            <Link to="/">Voltar</Link>
             <img
               src={repository.owner.avatar_url}
               alt={repository.owner.login}
@@ -143,6 +142,9 @@ export default function Repository({ match }) {
           </Pagination>
         </Panel>
       )}
+      <Back to="/" data-tesid="back">
+        <FaArrowLeft />
+      </Back>
     </Container>
   );
 }
