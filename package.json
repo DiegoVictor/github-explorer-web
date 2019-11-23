@@ -24,7 +24,7 @@
       "jest-localstorage-mock"
     ],
     "testMatch": [
-      "./__tests__/**/*.test.js"
+      "src/__tests__/**/*.test.js"
     ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
