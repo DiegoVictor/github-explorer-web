@@ -6,7 +6,7 @@ import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 import api from '~/services/api';
 import Panel from '~/components/Panel';
 import {
-  Loading,
+  Container,
   Owner,
   IssueList,
   StatusList,
@@ -17,7 +17,6 @@ import {
 export default function Repository({ match }) {
   const [repository, setRepository] = useState(null);
   const [issues, setIssues] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [state, setState] = useState('all');
 
@@ -88,10 +87,8 @@ export default function Repository({ match }) {
   );
 
   return (
-    <>
-      {loading ? (
-        <Loading>Carregando</Loading>
-      ) : (
+    <Container>
+      {repository && (
         <Panel>
           <Owner>
             <Link to="/">Voltar</Link>
@@ -146,7 +143,7 @@ export default function Repository({ match }) {
           </Pagination>
         </Panel>
       )}
-    </>
+    </Container>
   );
 }
 
