@@ -69,6 +69,8 @@ export const Filters = styled.div`
 `;
 
 export const StatusList = styled.select`
+  -webkit-appearance: none;
+  appearance: none;
   border: 1px solid #eeeeee;
   border-radius: 4px;
   height: 30px;
