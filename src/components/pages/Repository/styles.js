@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-export const Loading = styled.div`
-  align-items: center;
-  color: #ffffff;
+export const Container = styled.div`
   display: flex;
-  font-size: 30px;
-  font-weight: bold;
-  justify-content: center;
-  height: 100vh;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0px auto;
+  max-width: 700px;
+  padding: 70px 0px;
 `;
 
 export const Owner = styled.header`
