@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -7,6 +8,16 @@ export const Container = styled.div`
   margin: 0px auto;
   max-width: 700px;
   padding: 70px 0px;
+`;
+
+export const Back = styled(Link)`
+  background-color: #7b7a7a;
+  color: #fff;
+  display: inline-block;
+  height: 40px;
+  line-height: 21px;
+  margin-top: 10px;
+  padding: 11px 13px;
 `;
 
 export const Owner = styled.header`
