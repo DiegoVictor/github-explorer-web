@@ -98,7 +98,7 @@ export default function Main() {
                 data-testid={`repository_${repository.name}`}
                 to={`/repository/${encodeURIComponent(repository.name)}`}
               >
-                Detalhes
+                Details
               </Link>
             </li>
           ))}
