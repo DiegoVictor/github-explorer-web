@@ -29,8 +29,8 @@ export const Icon = styled.div`
 `;
 
 export const Err = styled.div`
-  background-color: #f2dede;
-  color: #cb6664;
+  background-color: #F2DEDE;
+  color: #CB6664;
   font-weight: bold;
   padding: 10px 15px;
   margin: 10px auto;
@@ -82,7 +82,7 @@ export const List = styled.ul`
   li {
     align-items: center;
     border-top: 1px solid #EEE;
-    box-shadow: 0px 1px 2px #DDD;
+    box-shadow: 0px 1px 2px #E8E8E8;
     color: #7B7A7A;
     display: flex;
     flex-direction: row;
