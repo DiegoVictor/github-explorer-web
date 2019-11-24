@@ -56,6 +56,16 @@ export const Filters = styled.div`
   border-top: 1px solid #eeeeee;
   margin-top: 20px;
   text-align: right;
+
+  &::after {
+    color: #7a7b7b;
+    content: '●●●';
+    font-size: 10px;
+    margin-top: 29px;
+    position: absolute;
+    right: 5px;
+    transform: rotate(90deg);
+  }
 `;
 
 export const StatusList = styled.select`
