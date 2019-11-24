@@ -32,11 +32,11 @@ export default function Repository({ match }) {
     (async () => {
       const repo_name = decodeURIComponent(match.params.repository);
       const { data } = await api.get(`/repos/${repo_name}/issues`, {
-          params: {
-            state,
-            per_page: 5,
-            page,
-          },
+        params: {
+          state,
+          per_page: 5,
+          page,
+        },
       });
 
       setIssues(data);
@@ -44,7 +44,7 @@ export default function Repository({ match }) {
   }, [match, page, state]);
 
   const handleStatusChange = useCallback(e => {
-        setPage(1);
+    setPage(1);
     setState(e.target.value);
   }, []);
 
@@ -73,6 +73,7 @@ export default function Repository({ match }) {
         <Panel>
           <Owner>
             <img
+              data-testid="avatar"
               src={repository.owner.avatar_url}
               alt={repository.owner.login}
             />
@@ -82,6 +83,7 @@ export default function Repository({ match }) {
 
           <Filters>
             <StatusList
+              data-testid="state"
               value={state}
               onChange={handleStatusChange}
             >
@@ -93,7 +95,7 @@ export default function Repository({ match }) {
 
           <IssueList>
             {issues.map(issue => (
-              <li key={String(issue.id)}>
+              <li data-testid={`issue_${issue.id}`} key={String(issue.id)}>
                 <img src={issue.user.avatar_url} alt={issue.user.login} />
                 <div>
                   <strong>
@@ -110,6 +112,7 @@ export default function Repository({ match }) {
 
           <Pagination>
             <button
+              data-testid="previous"
               type="button"
               disabled={page < 2}
               onClick={() => handlePagination(page - 1)}
@@ -117,6 +120,7 @@ export default function Repository({ match }) {
               <FaArrowLeft color="#7B7A7A" /> Previous
             </button>
             <button
+              data-testid="next"
               type="button"
               disabled={issues.length < 5}
               onClick={() => handlePagination(page + 1)}
@@ -126,7 +130,7 @@ export default function Repository({ match }) {
           </Pagination>
         </Panel>
       )}
-      <Back to="/" data-tesid="back">
+      <Back to="/" data-testid="back">
         <FaArrowLeft />
       </Back>
     </Container>

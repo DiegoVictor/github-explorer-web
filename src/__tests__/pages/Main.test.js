@@ -67,4 +67,6 @@ describe('Main page', () => {
     expect(getByTestId('error')).toHaveTextContent('Repositório duplicado');
   });
 
+  // TODO repo duplicado
+  // TODO repo na lista
 });
