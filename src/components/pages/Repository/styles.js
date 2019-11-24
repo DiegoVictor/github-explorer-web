@@ -32,9 +32,12 @@ export const Owner = styled.header`
   }
 
   img {
-    border-radius: 50%;
+    border: 1px solid #ddd;
+    border-radius: 7px;
     margin-top: 20px;
-    width: 120px;
+    opacity: 0.7;
+    padding: 3px;
+    width: 140px;
   }
 
   h1 {
@@ -53,8 +56,8 @@ export const Owner = styled.header`
 `;
 
 export const Filters = styled.div`
-  border-top: 1px solid #eeeeee;
   margin-top: 20px;
+  position: relative;
   text-align: right;
 
   &::after {
@@ -71,11 +74,15 @@ export const Filters = styled.div`
 export const StatusList = styled.select`
   -webkit-appearance: none;
   appearance: none;
+  background-color: #fff;
   border: 1px solid #eeeeee;
-  border-radius: 4px;
-  height: 30px;
+  border-radius: 0px;
+  box-shadow: 0px 1px 2px #e8e8e8;
+  height: 34px;
   margin-top: 20px;
-  width: 100px;
+  max-width: 190px;
+  padding: 0px 10px;
+  width: 100%;
 `;
 
 export const IssueList = styled.ul`
@@ -84,19 +91,21 @@ export const IssueList = styled.ul`
 
   li {
     border: 1px solid #eeeeee;
-    border-radius: 4px;
+    border-top: 1px solid #eee;
+    box-shadow: 0px 1px 2px #e8e8e8;
     display: flex;
     padding: 15px 10px;
 
     & + li {
-      margin-top: 10px;
+      margin-top: 4px;
     }
 
     img {
-      border: 2px solid #eeeeee;
-      border-radius: 50%;
-      height: 36px;
-      width: 36px;
+      border: 1px solid #ddd;
+      border-radius: 7px;
+      height: 40px;
+      padding: 1px;
+      width: 40px;
     }
 
     div {
@@ -107,11 +116,10 @@ export const IssueList = styled.ul`
         font-size: 16px;
 
         a {
-          color: #7159c1;
-          text-decoration: none;
+          color: #7b7a7a;
 
           &:hover {
-            color: #7159c1;
+            color: #7b7a7a;
           }
         }
 
@@ -130,7 +138,7 @@ export const IssueList = styled.ul`
       p {
         color: #999999;
         font-size: 12px;
-        margin-top: 5px;
+        margin-top: 1px;
       }
     }
   }
@@ -142,15 +150,39 @@ export const Pagination = styled.div`
   margin-top: 20px;
 
   button {
+    align-items: center;
     background-color: transparent;
-    border: 1px solid #7159c1;
+    border: 1px solid #7b7a7a;
     border-radius: 4px;
-    color: #7159c1;
+    color: #7b7a7a;
+    display: flex;
+    font-size: 12px;
+    font-weight: bold;
     line-height: 13px;
-    padding: 10px 15px;
+    padding: 11px 15px 9px;
+    text-transform: uppercase;
 
     &[disabled] {
       opacity: 0.2;
+    }
+
+    &:not([disabled]):hover {
+      background-color: #7b7a7a;
+      color: #fff;
+
+      svg {
+        color: #fff !important;
+      }
+    }
+
+    &:first-child svg {
+      margin-right: 5px;
+      margin-top: -2px;
+    }
+
+    &:last-child svg {
+      margin-left: 5px;
+      margin-top: -2px;
     }
   }
 `;
