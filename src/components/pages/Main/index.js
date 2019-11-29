@@ -68,7 +68,7 @@ export default function Main() {
       <Panel>
         <Form data-testid="submit" onSubmit={handleSubmit} error={error}>
           <Icon>
-            <FaGithub color="#7B7A7A" size="30"/>
+            <FaGithub color="#7B7A7A" size="30" />
           </Icon>
           <input
             type="text"
@@ -106,4 +106,4 @@ export default function Main() {
       </Panel>
     </Container>
   );
-}
+};
