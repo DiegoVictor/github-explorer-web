@@ -6,7 +6,7 @@ import api from '~/services/api';
 import Panel from '~/components/Panel';
 import { Container, Form, Icon, Err, SubmitButton, List } from './styles';
 
-export default function Main() {
+export default () => {
   const [repo_name, setRepoName] = useState('');
   const [repositories, setRepositories] = useState([]);
   const [loading, setLoading] = useState(false);
