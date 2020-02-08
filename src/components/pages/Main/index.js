@@ -45,7 +45,7 @@ export default () => {
 
         setLoading(true);
 
-        const response = await api.get(`/repos/${repo_name}`);
+        const response = await api.get(`repos/${repo_name}`);
         const data = {
           name: response.data.full_name,
         };
@@ -75,6 +75,7 @@ export default () => {
             placeholder="username/project"
             value={repo_name}
             onChange={handleInputChange}
+            required
           />
           <SubmitButton loading={loading ? 1 : 0}>
             {loading ? (
