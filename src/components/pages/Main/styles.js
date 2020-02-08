@@ -29,8 +29,8 @@ export const Icon = styled.div`
 `;
 
 export const Err = styled.div`
-  background-color: #F2DEDE;
-  color: #CB6664;
+  background-color: #f2dede;
+  color: #cb6664;
   font-weight: bold;
   padding: 10px 15px;
   margin: 10px auto;
@@ -53,7 +53,7 @@ export const SubmitButton = styled.button.attrs(props => ({
   disabled: props.loading,
 }))`
   align-items: center;
-  background-color: #7B7A7A;
+  background-color: #7b7a7a;
   border: 0px;
   display: flex;
   height: 100%;
@@ -81,9 +81,9 @@ export const List = styled.ul`
 
   li {
     align-items: center;
-    border-top: 1px solid #EEE;
-    box-shadow: 0px 1px 2px #E8E8E8;
-    color: #7B7A7A;
+    border-top: 1px solid #eee;
+    box-shadow: 0px 1px 2px #e8e8e8;
+    color: #7b7a7a;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -91,7 +91,7 @@ export const List = styled.ul`
     padding: 15px 15px;
 
     a {
-      color: #7B7A7A;
+      color: #7b7a7a;
       font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;

@@ -8,7 +8,7 @@ const Panel = styled.div`
 
   h1 {
     align-items: center;
-    color: #7B7A7A;
+    color: #7b7a7a;
     display: flex;
     flex-direction: row;
     font-size: 20px;
