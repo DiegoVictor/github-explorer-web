@@ -10,7 +10,7 @@
     "react-dom": "^16.9.0",
     "react-icons": "^3.7.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "3.0.1",
     "styled-components": "^4.3.2"
   },
   "scripts": {
@@ -25,7 +25,7 @@
       "jest-localstorage-mock"
     ],
     "testMatch": [
-      "src/__tests__/**/*.test.js"
+      "**/__tests__/**/*.test.js"
     ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
@@ -34,13 +34,13 @@
       "^~/(.*)": "<rootDir>/src/$1"
     },
     "collectCoverageFrom": [
-      "!src/index.js",
-      "!src/routes.js",
-      "!src/services/api.js",
-      "!src/config/ReactotronConfig.js",
-      "!src/components/pages/index.js"
+      "src/components",
+      "!src/*.js",
+      "!src/services/*",
+      "!src/config/*",
+      "!src/components/pages/*.js"
     ],
-    "coverageDirectory": "src/__tests__/coverage"
+    "coverageDirectory": "__tests__/coverage"
   },
   "eslintConfig": {
     "extends": "react-app"
