@@ -52,7 +52,7 @@ export default function Repository({ match }) {
     p => {
       (async () => {
         const repo_name = decodeURIComponent(match.params.repository);
-        const response = await api.get(`repos/${repo_name}/issues`, {
+        const { data } = await api.get(`repos/${repo_name}/issues`, {
           params: {
             per_page: 5,
             state,
@@ -60,7 +60,7 @@ export default function Repository({ match }) {
           },
         });
 
-        setIssues(response.data);
+        setIssues(data);
         setPage(p);
       })();
     },
