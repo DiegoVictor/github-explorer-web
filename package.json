@@ -63,7 +63,6 @@
     "axios-mock-adapter": "^1.17.0",
     "babel-plugin-root-import": "^6.4.1",
     "customize-cra": "^0.8.0",
-    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",
     "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
