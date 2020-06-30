@@ -39,8 +39,6 @@ const Repository: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      console.log(params);
-
       const { data } = await api.get(`/repos/${params.repository}`);
       setRepo(data);
     })();
