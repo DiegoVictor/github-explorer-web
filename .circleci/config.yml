@@ -12,8 +12,8 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+            - run: npm run coverage
       - codecov/upload:
-          run: npm run coverage
           file: tests/coverage/*.json
 workflows:
     build-and-test:
