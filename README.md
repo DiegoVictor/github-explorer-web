@@ -23,7 +23,7 @@ This application allow you to search and add repositories to a favorite list and
 # Screenshots
 Click to expand.<br>
 <img src="https://raw.githubusercontent.com/DiegoVictor/github-explorer/master/screenshots/dashboard.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/github-explorer/master/screenshots/issues.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/github-explorer/master/screenshots/repository.png" width="49%"/>
 
 # Installing
 Easy peasy lemon squeezy:
