@@ -1,4 +1,4 @@
-# GitHub Explorer
+# [WEB] GitHub Explorer
 ![CircleCI](https://img.shields.io/circleci/build/github/DiegoVictor/github-explorer?style=flat-square&logo=circleci)
 [![react](https://img.shields.io/badge/reactjs-16.13.1-61dafb?style=flat-square&logo=react)](https://reactjs.org/)
 [![styled-components](https://img.shields.io/badge/styled_components-5.1.0-db7b86?style=flat-square&logo=styled-components)](https://styled-components.com/)
