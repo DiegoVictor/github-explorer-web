@@ -3,8 +3,8 @@ import { useRouteMatch, Link } from 'react-router-dom';
 import { FiChevronsLeft, FiChevronRight } from 'react-icons/fi';
 
 import Logo from '../../assets/logo.svg';
-import { Header, Details, Issues } from './styles';
 import api from '../../services/api';
+import { Header, Details, Issues } from './styles';
 
 interface RepositoryParams {
   repository: string;
