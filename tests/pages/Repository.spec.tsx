@@ -3,9 +3,9 @@ import MockAdapter from 'axios-mock-adapter';
 import { render, act } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
 
-import factory from './utils/factories';
-import api from '../src/services/api';
-import Repository from '../src/pages/Repository';
+import factory from '../utils/factory';
+import api from '../../src/services/api';
+import Repository from '../../src/pages/Repository';
 
 interface GitHubRepository {
   full_name: string;
@@ -21,13 +21,13 @@ interface Issue {
 }
 
 describe('Repository page', () => {
-  const api_mock = new MockAdapter(api);
+  const apiMock = new MockAdapter(api);
 
   it('should exists a link to go back to dashboard page', async () => {
     const repository: GitHubRepository = await factory.attrs('Repository');
     const issues: Issue[] = await factory.attrsMany('Issue', 3);
 
-    api_mock
+    apiMock
       .onGet(`/repos/${repository.full_name}`)
       .reply(200, repository)
       .onGet(`/repos/${repository.full_name}/issues`)

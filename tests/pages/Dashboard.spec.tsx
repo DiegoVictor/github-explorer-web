@@ -3,9 +3,9 @@ import { render, fireEvent, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import MockAdapter from 'axios-mock-adapter';
 
-import factory from './utils/factories';
-import Dashboard from '../src/pages/Dashboard';
-import api from '../src/services/api';
+import factory from '../utils/factory';
+import Dashboard from '../../src/pages/Dashboard';
+import api from '../../src/services/api';
 
 interface GitHubRepository {
   full_name: string;
@@ -17,7 +17,7 @@ interface GitHubRepository {
 }
 
 describe('Dashboard', () => {
-  const api_mock = new MockAdapter(api);
+  const apiMock = new MockAdapter(api);
 
   beforeEach(async () => {
     await act(async () => {
@@ -48,7 +48,7 @@ describe('Dashboard', () => {
   it('should be able to add a repository', async () => {
     const repository: GitHubRepository = await factory.attrs('Repository');
 
-    api_mock.onGet(`repos/${repository.full_name}`).reply(200, repository);
+    apiMock.onGet(`repos/${repository.full_name}`).reply(200, repository);
 
     const { getByPlaceholderText, getByTestId } = render(
       <MemoryRouter>
@@ -96,7 +96,7 @@ describe('Dashboard', () => {
   it("should not be able to add a repository not fetched in GitHub's API", async () => {
     const repository: GitHubRepository = await factory.attrs('Repository');
 
-    api_mock.onGet(`repos/${repository.full_name}`).reply(404);
+    apiMock.onGet(`repos/${repository.full_name}`).reply(404);
 
     const { getByPlaceholderText, getByTestId, getByText } = render(
       <MemoryRouter>
