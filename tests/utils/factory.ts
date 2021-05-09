@@ -21,7 +21,7 @@ factory.define('Issue', {}, () => {
   const userName = faker.internet.userName();
   const name = faker.lorem.word();
   return {
-    id: faker.datatype.number,
+    id: faker.random.number,
     user: {
       avatar_url: faker.image.imageUrl,
       login: userName,
@@ -30,7 +30,7 @@ factory.define('Issue', {}, () => {
     title: faker.name.title,
     labels: [
       {
-        id: faker.datatype.number,
+        id: faker.random.number,
         name: faker.lorem.word,
       },
     ],
