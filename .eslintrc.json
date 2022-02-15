@@ -31,12 +31,8 @@
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
     "camelcase": "off",
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
-      {
-        "allowExpressions": true
-      }
-    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/function-component-definition": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
