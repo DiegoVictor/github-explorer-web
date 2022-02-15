@@ -20,22 +20,6 @@
     "coverage": "react-app-rewired test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
-  "jest": {
-    "roots": [
-      "<rootDir>/src/",
-      "<rootDir>/tests/"
-    ],
-    "testMatch": [
-      "**/tests/**/*.spec.tsx"
-    ],
-    "coverageDirectory": "tests/coverage",
-    "collectCoverageFrom": [
-      "!src/*.tsx",
-      "!src/styles/*.ts",
-      "!src/services/*.ts",
-      "!src/routes/*.tsx"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
