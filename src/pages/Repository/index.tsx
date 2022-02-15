@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useRouteMatch, Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FiChevronsLeft, FiChevronRight } from 'react-icons/fi';
 
 import Logo from '../../assets/logo.svg';
 import api from '../../services/api';
 import { Header, Details, Issues } from './styles';
-
-interface RepositoryParams {
-  repository: string;
-}
 
 interface Repository {
   full_name: string;
@@ -34,21 +30,21 @@ interface Issue {
 const Repository: React.FC = () => {
   const [repo, setRepo] = useState<Repository | null>(null);
   const [issues, setIssues] = useState<Issue[]>([]);
-  const { params } = useRouteMatch<RepositoryParams>();
+  const { '*': repository } = useParams();
 
   useEffect(() => {
     (async () => {
-      const { data } = await api.get(`/repos/${params.repository}`);
+      const { data } = await api.get(`/repos/${repository}`);
       setRepo(data);
     })();
-  }, [params.repository]);
+  }, [repository]);
 
   useEffect(() => {
     (async () => {
-      const { data } = await api.get(`/repos/${params.repository}/issues`);
+      const { data } = await api.get(`/repos/${repository}/issues`);
       setIssues(data);
     })();
-  }, [params.repository]);
+  }, [repository]);
 
   return (
     <>
