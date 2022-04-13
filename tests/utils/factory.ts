@@ -1,5 +1,5 @@
 import factory from 'factory-girl';
-import faker from 'faker';
+import faker from '@faker-js/faker';
 
 factory.define('Repository', {}, () => {
   const userName = faker.internet.userName();
@@ -27,7 +27,7 @@ factory.define('Issue', {}, () => {
       login: userName,
     },
     html_url: `https://github.com/${userName}/${name}/issues/`,
-    title: faker.name.title,
+    title: faker.name.jobTitle,
     labels: [
       {
         id: faker.datatype.number,
