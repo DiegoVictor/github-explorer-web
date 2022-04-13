@@ -1,18 +1,14 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
   codecov: codecov/codecov@1.1.0
 jobs:
   build-and-test:
-    executor:
-      name: node/default
-      tag: '12.18.3'
+    docker:
+      - image: circleci/node:16
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - run: npm ci
+      - run: npm test
       - codecov/upload:
           file: tests/coverage/*.json
 workflows:
