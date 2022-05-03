@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   codecov: codecov/codecov@1.1.0
 jobs:
-  build-and-test:
+  test:
     docker:
       - image: circleci/node:16
     steps:
@@ -12,6 +12,6 @@ jobs:
       - codecov/upload:
           file: tests/coverage/*.json
 workflows:
-    build-and-test:
+    test:
       jobs:
         - build-and-test
