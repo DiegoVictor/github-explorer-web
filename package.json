@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^0.27.2",
     "polished": "^4.1.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -31,6 +31,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/parser": "^7.17.10",
     "@faker-js/faker": "^6.1.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^13.0.0",
@@ -59,7 +60,7 @@
     "jest-transform-stub": "^2.0.0",
     "prettier": "^2.0.5",
     "react-app-rewired": "^2.1.6",
-    "ts-jest": "^27.1.3",
+    "ts-jest": "^28.0.0",
     "typescript": "^4.0.2"
   }
 }
