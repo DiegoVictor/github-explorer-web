@@ -4,12 +4,13 @@ orbs:
   codecov: codecov/codecov@1.1.0
 jobs:
   test:
-    executor: node/default
+    executor:
+      name: node/default
+      tag: '16.13'
     steps:
       - checkout
       - node/install-packages:
           cache-path: ~/github-explorer-web/node_modules
-          node-version: '16.13'
       - run: npm run test
       - codecov/upload:
           file: tests/coverage/*.json
