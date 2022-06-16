@@ -1,5 +1,5 @@
 import factory from 'factory-girl';
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
 factory.define('Repository', {}, () => {
   const userName = faker.internet.userName();
