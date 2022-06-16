@@ -9,6 +9,7 @@ jobs:
       - checkout
       - node/install-packages:
           cache-path: ~/github-explorer-web/node_modules
+          node-version: '16.13'
       - run: npm run test
       - codecov/upload:
           file: tests/coverage/*.json
