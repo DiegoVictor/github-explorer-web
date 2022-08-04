@@ -180,7 +180,7 @@ The project saves the repositories' list into a [localStorage](https://developer
 ```
 
 # Running the tests
-[Jest](https://jestjs.io) was the choice to test the app, to run:
+[Jest](https://jestjs.io/) was the choice to test the app, to run:
 ```
 $ yarn test
 ```
@@ -188,14 +188,7 @@ Or:
 ```
 $ npm run test
 ```
+> Run the command in the root folder
 
-## Coverage Report
-To generate/update the coverage report:
-```
-$ yarn coverage
-```
-Or:
-```
-$ npm run coverage
-```
-> You can see the coverage report inside `tests/coverage`.
+## Coverage report
+You can see the coverage report inside `tests/coverage`. They are automatically created after the tests run.
