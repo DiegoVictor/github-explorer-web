@@ -7,7 +7,7 @@
 [![airbnb-style](https://flat.badgen.net/badge/style-guide/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 [![jest](https://img.shields.io/badge/jest-24.9.0-brightgreen?style=flat-square&logo=jest)](https://jestjs.io/)
 [![coverage](https://img.shields.io/codecov/c/gh/DiegoVictor/github-explorer-web?logo=codecov&style=flat-square)](https://codecov.io/gh/DiegoVictor/github-explorer-web)
-[![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/DiegoVictor/github-explorer/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/DiegoVictor/github-explorer/blob/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)<br>
 
 This application allow you to search and add repositories to a favorite list and then to see the repositories' issues.
@@ -23,8 +23,8 @@ This application allow you to search and add repositories to a favorite list and
 
 # Screenshots
 Click to expand.<br>
-<img src="https://raw.githubusercontent.com/DiegoVictor/github-explorer/master/screenshots/dashboard.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/github-explorer/master/screenshots/repository.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/github-explorer/main/screenshots/dashboard.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/github-explorer/main/screenshots/repository.png" width="49%"/>
 
 # Installing
 Easy peasy lemon squeezy:
