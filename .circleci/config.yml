@@ -4,16 +4,13 @@ orbs:
   codecov: codecov/codecov@4.2.0
 jobs:
   test:
-    executor:
-      name: node/default
-      tag: '16.13'
     steps:
       - checkout
-      - node/install-packages:
-          cache-path: ~/github-explorer-web/node_modules
+      - node/install:
+          node-version: 16.13
       - run: npm run test
       - codecov/upload
 workflows:
-    test:
+    main:
       jobs:
         - test
