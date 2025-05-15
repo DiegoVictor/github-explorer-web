@@ -6,11 +6,11 @@ jobs:
   test:
     executor:
       name: node/default
-      tag: '16.20.2'
+      tag: '16.13'
     steps:
       - checkout
       - node/install-packages:
-          cache-path: ~/github-explorer-web/node_modules
+          cache-path: ~/project/node_modules
       - run: npm run test
       - codecov/upload
 workflows:
