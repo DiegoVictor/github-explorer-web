@@ -4,13 +4,11 @@ orbs:
   codecov: codecov/codecov@5.4.0
 jobs:
   test:
-    docker:
-      - image: cimg/base:stable
+    executor: node/16.20.2
     steps:
       - checkout
       - node/install-packages:
           cache-path: ~/github-explorer-web/node_modules
-          node-version: '16.13'
       - run: npm run test
       - codecov/upload
 workflows:
