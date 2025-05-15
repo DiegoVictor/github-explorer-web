@@ -8,7 +8,8 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - node/install:
+      - node/install-packages:
+          cache-path: ~/github-explorer-web/node_modules
           node-version: '16.13'
       - run: npm run test
       - codecov/upload
