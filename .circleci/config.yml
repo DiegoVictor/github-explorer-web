@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@7.1.0
-  codecov: codecov/codecov@1.1.0
+  codecov: codecov/codecov@5.4.0
 jobs:
   test:
     executor:
@@ -13,7 +13,7 @@ jobs:
           cache-path: ~/github-explorer-web/node_modules
       - run: npm run test
       - codecov/upload:
-          file: tests/coverage/*.json
+          dir: tests/coverage
 workflows:
     test:
       jobs:
