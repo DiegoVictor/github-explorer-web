@@ -4,7 +4,9 @@ orbs:
   codecov: codecov/codecov@5.4.0
 jobs:
   test:
-    executor: node/16.20.2
+    executor:
+      name: node/default
+      tag: '16.20.2'
     steps:
       - checkout
       - node/install-packages:
