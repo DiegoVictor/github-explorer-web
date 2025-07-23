@@ -56,6 +56,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "factory-girl": "^5.0.4",
     "history": "^5.2.0",
+    "jest-environment-jsdom": "^30.0.5",
     "jest-environment-jsdom-sixteen": "^2.0.0",
     "jest-transform-stub": "^2.0.0",
     "prettier": "^2.0.5",
